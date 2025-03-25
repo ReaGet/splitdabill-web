@@ -1,0 +1,12 @@
+html {
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-eb-garamond: "EB Garamond", serif;
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 110%;
+}
+
+p {
+  line-height: 160%;
+}

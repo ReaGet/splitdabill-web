@@ -1,0 +1,45 @@
+@import url("./colors.css");
+@import url("./bg-pattern.css");
+@import url("./typography.css");
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+  padding: 0 15px;
+  margin: auto;
+}
+
+section {
+  min-height: 100vh;
+}
+
+.section__heading {
+  --text-size: 6.4rem;
+  max-width: 800px;
+  margin: auto;
+  font-family: var(--font-eb-garamond);
+  font-size: var(--text-size);
+  text-align: center;
+}
+
+.section__subheading {
+  --text-size: 1.8rem;
+  max-width: 800px;
+  margin: auto;
+  font-size: var(--text-size);
+  text-align: center;
+}
+
+.section__heading + .section__subheading {
+  margin-top: 25px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 2.4rem;
+  text-decoration: none;
+  font-weight: 500;
+  color: #000;
+}

@@ -1,0 +1,20 @@
+@import './common/common.css';
+@import './blocks/header.css';
+@import './blocks/hero.css';
+@import './blocks/features.css';
+@import './blocks/why.css';
+@import './blocks/footer.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: var(--font-montserrat);
+}

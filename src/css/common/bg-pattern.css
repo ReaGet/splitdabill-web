@@ -1,0 +1,7 @@
+.bg-paper {
+  --color: #f5f5f5;
+  opacity: 0.8;
+  background-image:  linear-gradient(var(--color) 2px, transparent 2px), linear-gradient(90deg, var(--color) 2px, transparent 2px), linear-gradient(var(--color) 1px, transparent 1px), linear-gradient(90deg, var(--color) 1px, #ffffff 1px);
+  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
