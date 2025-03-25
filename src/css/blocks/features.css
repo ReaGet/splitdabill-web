@@ -1,3 +1,53 @@
 .features {
   padding-top: 70px;
 }
+
+.features__content {
+  display: flex;
+}
+
+.features__item {
+  padding-top: 200px;
+}
+
+.features__item-heading {
+  max-width: 600px;
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.features__item-list {
+  max-width: 480px;
+  margin-top: 55px;
+  font-size: 1.6rem;
+}
+
+.features__item-list__item + .features__item-list__item {
+  margin-top: 40px;
+}
+
+.features__screenshot {
+  position: relative;
+  margin-left: auto;
+}
+
+.features__screenshot-img {
+  position: relative;
+  z-index: 2;
+}
+
+.features__screenshot-splash {
+  position: absolute;
+  right: 120px;
+  z-index: 1;
+  animation: rotate 20s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}

@@ -85,14 +85,14 @@
   font-size: 1.1rem;
 }
 
-.hero__feature {
+.hero__app {
   position: relative;
   display: flex;
   justify-content: center;
   margin-left: auto;
 }
 
-.hero__feature-phone__wrappper {
+.hero__app-wrappper {
   position: relative;
   padding: 70px 100px;
   margin-left: auto;
@@ -100,7 +100,7 @@
   border-radius: 30px;
 }
 
-.hero__feature-phone__wrappper:after {
+.hero__app-wrappper:after {
   content: '';
   position: absolute;
   display: block;
@@ -114,12 +114,12 @@
   filter: blur(11px);
 }
 
-.hero__feature-phone__img {
+.hero__app-img {
   position: relative;
   z-index: 2;
 }
 
-.hero__feature-item {
+.hero__app-feature {
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -135,13 +135,13 @@
   font-size: 1.4rem;
 }
 
-.feature-item--check {
+.app-item--check {
   top: 55%;
   translate: -70%;
   rotate: 7deg;
 }
 
-.feature-item--chat {
+.app-item--chat {
   bottom: 15%;
   translate: -70%;
   rotate: -10deg;
