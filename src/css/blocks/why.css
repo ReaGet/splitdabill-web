@@ -27,7 +27,7 @@
   height: 95%;
   border-radius: 30px;
   background-color: var(--bg-color);
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .why__item-inner:hover {
