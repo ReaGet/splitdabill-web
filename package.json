@@ -12,6 +12,7 @@
     "vite": "^6.2.0"
   },
   "dependencies": {
+    "animejs": "^3.2.2",
     "modern-normalize": "^3.0.1"
   }
 }
