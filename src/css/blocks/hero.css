@@ -116,6 +116,8 @@
 
 .hero__app-img {
   position: relative;
+  max-height: 70vh;
+  width: auto;
   z-index: 2;
 }
 

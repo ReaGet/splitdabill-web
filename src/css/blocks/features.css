@@ -57,6 +57,8 @@
 
 .features__screenshot-img {
   position: relative;
+  max-height: 90vh;
+  width: auto;
   z-index: 2;
 }
 

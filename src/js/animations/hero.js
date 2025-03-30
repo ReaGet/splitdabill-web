@@ -28,7 +28,7 @@ anime({
 
 anime({
   targets: '.hero__app-feature',
-  delay: anime.stagger(50),
+  delay: anime.stagger(150),
   duration: 500,
   easing: 'easeInOutBack',
   opacity: {
@@ -36,8 +36,10 @@ anime({
   },
   rotate: {
     value: [anime.random(-20, 20), 0],
+    delay: anime.stagger(100)
   },
   translateY: {
     value: [100, 0],
+    delay: anime.stagger(100)
   }
 });
