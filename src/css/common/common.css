@@ -43,3 +43,22 @@ section {
   font-weight: 500;
   color: #000;
 }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1499px) {
+  .section__heading {
+    --text-size: 5.6rem;
+  }
+}
+
+@media (max-width: 889px) {
+  .section__heading {
+    --text-size: 5.6rem;
+  }
+}
+@media (max-width: 889px) {
+  .section__heading {
+    --text-size: 4.6rem;
+  }
+}

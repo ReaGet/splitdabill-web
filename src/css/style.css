@@ -18,3 +18,7 @@ html {
 body {
   font-family: var(--font-montserrat);
 }
+
+main {
+  overflow-x: hidden;
+}

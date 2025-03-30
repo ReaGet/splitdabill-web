@@ -59,3 +59,16 @@
   background-image: url('../../assets/icons/external-link.svg');
   background-repeat: no-repeat;
 }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 889px) {
+  .footer-container {
+    grid-template-columns: 1fr auto;
+    row-gap: 30px;
+  }
+
+  .footer .logo {
+    grid-column: 1 / 2 span;
+  }
+}
