@@ -127,3 +127,39 @@
   }
 }
 
+@media (max-width: 539px) {
+  .why__list {
+    grid-template-columns: 1fr;
+  }
+  .why__item-inner h3 {
+    --text-size: 2.4rem;
+  }
+  
+  .why__item-inner h3 {
+    margin-top: 35px;
+    margin-bottom: 20px;
+  }
+
+  .why__item-inner p {
+    --text-size: 1.6rem;
+    max-width: 320px;
+  }
+}
+
+
+@media (max-width: 440px) {
+  .why__item-inner h3 {
+    --text-size: 2rem;
+  }
+  
+  .why__item-inner h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .why__item-inner p {
+    --text-size: 1.4rem;
+    max-width: 260px;
+    padding: 0 10px;
+  }
+}
