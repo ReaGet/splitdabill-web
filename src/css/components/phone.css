@@ -1,0 +1,53 @@
+.phone {
+  --height: 70vh;
+  --border-width: calc(var(--height) / 150);
+  --border-radius: calc(var(--height) / 15);
+  --color: #616161;
+  height: var(--height);
+  aspect-ratio: 0.49;
+  border: var(--border-width) solid var(--color);
+  border-radius: var(--border-radius);
+}
+
+.phone__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: calc(var(--border-width) * 1.4) solid #000;
+  border-radius: calc(var(--border-radius) * 0.9);
+  overflow: hidden;
+}
+
+.phone__inner::before {
+  content: '';
+  position: absolute;
+  width: calc(var(--height) * 0.13);
+  height: calc(var(--height) * 0.036);
+  top: calc(var(--height) * 0.015);
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: calc(var(--border-radius) * 0.3);
+  background-color: #000;
+}
+
+.phone__inner::after {
+  --size: calc(var(--height) * 0.028);
+  content: '';
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  top: calc(var(--height) * 0.019);
+  translate: calc(var(--height) * 0.12 / 2 - calc(var(--size) / 2));
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: calc(var(--border-radius) * 0.3);
+  background-image: radial-gradient(circle at center, #000 39%, transparent 58%), linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2));
+}
+
+.phone__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
