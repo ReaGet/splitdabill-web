@@ -18,7 +18,11 @@ useAnimeOnEnter({
   targets: '.hero__app-wrappper',
   duration: 500,
   backgroundColor: ['rgba(252, 208, 237, 0.2)', 'rgba(252, 208, 237, 1)'],
-  easing: 'easeInOutCirc'
+  easing: 'easeInOutCirc',
+  opacity: {
+    value: [0, 1],
+    duration: 400,
+  },
 });
 
 useAnimeOnEnter({
