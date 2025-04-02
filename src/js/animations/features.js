@@ -2,7 +2,7 @@ import anime from 'animejs';
 import { useAnimeOnEnter } from '../composables/useAnimeOnEnter';
 
 useAnimeOnEnter({
-  targets: ['.why .section__heading', '.why .section__subheading', '.why__list-item'],
+  targets: ['.features .section__heading', '.features__block-heading', '.features__block-list__item', '.features__block .phone'],
   translateY: [50, 0],
   easing: 'easeInOutQuad',
   duration: 300,

@@ -1,6 +1,7 @@
 import anime from 'animejs';
+import { useAnimeOnEnter } from '../composables/useAnimeOnEnter';
 
-anime({
+useAnimeOnEnter({
   targets: ['.hero__heading', '.hero__subheading', '.hero__stores'],
   translateX: [-150, 0],
   easing: 'easeInOutQuad',
@@ -12,21 +13,22 @@ anime({
   delay: anime.stagger(100),
 });
 
-anime({
+
+useAnimeOnEnter({
   targets: '.hero__app-wrappper',
   duration: 500,
   backgroundColor: ['rgba(252, 208, 237, 0.2)', 'rgba(252, 208, 237, 1)'],
   easing: 'easeInOutCirc'
 });
 
-anime({
+useAnimeOnEnter({
   targets: '.hero__app-img',
   translateY: [50, 0],
   duration: 500,
   easing: 'easeInOutBack',
 });
 
-anime({
+useAnimeOnEnter({
   targets: '.hero__app-feature',
   delay: anime.stagger(150),
   duration: 500,

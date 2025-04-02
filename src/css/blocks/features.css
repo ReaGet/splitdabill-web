@@ -7,6 +7,7 @@
 
 .features .section__heading {
   margin: 40px auto;
+  opacity: 0;
 }
 
 .features__block {
@@ -39,6 +40,7 @@
   max-width: 600px;
   font-size: var(--text-size, 5rem);
   font-weight: 500;
+  opacity: 0;
 }
 
 .features__block-list {
@@ -50,6 +52,7 @@
 
 .features__block-list__item {
   display: inline-flex;
+  opacity: 0;
 }
 
 .features__block-list__item::before {
@@ -71,6 +74,7 @@
 .phone {
   --height: 80vh;
   filter: drop-shadow(1px 16px 13px rgba(0, 0, 0, 0.2));
+  opacity: 0;
 }
 
 .features__block:nth-child(2) .phone {

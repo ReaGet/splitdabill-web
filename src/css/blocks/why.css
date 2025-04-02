@@ -2,6 +2,10 @@
   padding: 70px 0;
 }
 
+.why .section__heading {
+  opacity: 0;
+}
+
 .why__list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -15,6 +19,7 @@
   border-radius: 30px;
   aspect-ratio: 1;
   transition: padding 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  opacity: 0;
 }
 
 .why__item-inner {
