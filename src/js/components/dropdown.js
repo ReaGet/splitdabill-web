@@ -1,6 +1,6 @@
 import '../../css/components/dropdown.css';
 
-class Dropdown {
+export class Dropdown {
   constructor(root) {
     this.root = root;
     this.opened = false;
@@ -65,6 +65,10 @@ class Dropdown {
   get items() {
     return [...this.root.querySelectorAll('.dropdown-item')];
   }
+
+  get current() {
+    return this.root.querySelector('.dropdown-current');
+  }
 }
 
-document.querySelectorAll('.dropdown').forEach(d => new Dropdown(d));
+// document.querySelectorAll('.dropdown').forEach(d => new Dropdown(d));

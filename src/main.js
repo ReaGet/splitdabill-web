@@ -1,4 +1,4 @@
 import 'modern-normalize';
 import './css/style.css';
 import './js/animations';
-import './js/components/dropdown';
+import './js/components/lang-switcher';
