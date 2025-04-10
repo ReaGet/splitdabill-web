@@ -11,11 +11,27 @@
   </head>
   <body>
     <header class="header">
-      <div class="container">
+      <div class="header-container container">
         <a class="logo" href="/" itemscope itemtype="https://schema.org/Organization">
           <img src="/logo.svg" alt="SplitDaBill Logo" itemprop="logo" width="40" height="40">
           SplitDaBill
         </a>
+
+        <div class="lang-switcher dropdown">
+          <span class="lang-switcher__current dropdown-current">
+            <svg width="20" height="20"><use xlink:href="./src/assets/icons/flag-sprite.svg#ru"></use></svg>
+          </span>
+          <ul class="lang-switcher__list dropdown-content">
+            <li class="lang-switcher__item dropdown-item">
+              <svg width="20" height="20"><use xlink:href="./src/assets/icons/flag-sprite.svg#ru"></use></svg>
+              RUSSIAN
+            </li>
+            <li class="lang-switcher__item dropdown-item">
+              <svg width="20" height="20"><use xlink:href="./src/assets/icons/flag-sprite.svg#en"></use></svg>
+              ENGLISH
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
 

@@ -1,0 +1,3 @@
+.dropdown:not(.js-active) .dropdown-content {
+  display: none !important;
+}
