@@ -10,18 +10,23 @@ class LangSwitcher extends Dropdown {
 
   init() {
     this.items.forEach(i => {
-      if (i.dataset.value === this.current.dataset.value) {
+      if (i.dataset.value === this.lang) {
         i.classList.add('js-active');
       }
     });
   }
 
+  get lang() {
+    return this.current.dataset.value;
+  }
+
   setNewItemActive(el) {
-    super.setNewItemActive(el);
     const lang = el.dataset.value;
+    if (lang === this.lang) return;
+    
+    super.setNewItemActive(el);
     this.current.setAttribute('data-value', lang);
-    const newSvg = el.querySelector('svg');
-    this.current.innerHTML = newSvg?.outerHTML || lang;
+    this.current.innerHTML = this.#parseChildSvgFrom(el) || lang;
     this.updateContent(lang);
   }
 
@@ -47,8 +52,16 @@ class LangSwitcher extends Dropdown {
       const key = d.dataset.i18,
         translation = locale[key];
       if (!translation) return;
-      d.innerText = translation;
+      d.innerHTML = `${this.#parseChildSvgFrom(d)}${translation}`;
     });
+  }
+  /**
+   * 
+   * @param {HTMLElement} el 
+   */
+  #parseChildSvgFrom(el) {
+    const svg = el.querySelector('svg');
+    return svg?.outerHTML || '';
   }
 }
 
