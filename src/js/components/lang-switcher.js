@@ -34,6 +34,7 @@ class LangSwitcher extends Dropdown {
   async updateContent(lang) {
     const locale = await this.fetchNewLocales(lang);
     this.applyLocaleToDOM(locale);
+    this.updateLocation(lang);
   }
 
   async fetchNewLocales(lang) {
@@ -55,6 +56,13 @@ class LangSwitcher extends Dropdown {
       if (!translation) return;
       d.innerHTML = `${getSvgFrom(d)}${translation}`;
     });
+  }
+
+  updateLocation(lang) {
+    if (history.pushState) {
+      const newurl = location.protocol + "//" + location.host + location.pathname + `?lang=${lang}`;
+      history.pushState({path:newurl}, '', newurl);
+    }
   }
 }
 
