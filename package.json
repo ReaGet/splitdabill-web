@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node ./plugins/modify-html-ext.js",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^22.14.1",
     "linkedom": "^0.18.9",
     "vite": "^6.2.0"
   },
