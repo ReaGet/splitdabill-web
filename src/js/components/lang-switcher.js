@@ -13,12 +13,18 @@ class LangSwitcher extends Dropdown {
     this.items.forEach(i => {
       if (i.dataset.value === this.lang) {
         i.classList.add('js-active');
+        this.setCurrentItemIcon(i);
       }
     });
   }
 
   get lang() {
-    return this.current.dataset.value;
+    console.log(this.getCurrentLangFromQuery())
+    return this.getCurrentLangFromQuery() || this.current.dataset.value;
+  }
+
+  getCurrentLangFromQuery() {
+    return new URLSearchParams(location.search).get('lang');
   }
 
   setNewItemActive(el) {
@@ -26,9 +32,13 @@ class LangSwitcher extends Dropdown {
     if (lang === this.lang) return;
     
     super.setNewItemActive(el);
-    this.current.setAttribute('data-value', lang);
-    this.current.innerHTML = getSvgFrom(el) || lang;
+    this.setCurrentItemIcon(el);
     this.updateContent(lang);
+  }
+
+  setCurrentItemIcon(el) {
+    this.current.setAttribute('data-value', el.dataset.value);
+    this.current.innerHTML = getSvgFrom(el) || el.dataset.value;
   }
 
   async updateContent(lang) {
