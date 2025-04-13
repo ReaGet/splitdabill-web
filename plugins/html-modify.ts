@@ -47,6 +47,8 @@ const prependPHPBlock = (document: Document) => {
   require_once './config.php';
   require_once './libs/i18/index.php';
   $i18 = new I18(dirname(__FILE__) . '/locales/');
+
+  $i18->init();
 ?>
 ${modifyBrackets(document)}
   `
