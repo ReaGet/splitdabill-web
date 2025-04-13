@@ -1,5 +1,6 @@
-import { Dropdown } from './dropdown';
-import _locale from '../shared/locale.json';
+import { Dropdown } from './dropdown'
+import _locale from '../shared/locale.json'
+import { getSvgFrom } from '../shared/dom'
 
 class LangSwitcher extends Dropdown {
   cachedLocales = {};
@@ -26,7 +27,7 @@ class LangSwitcher extends Dropdown {
     
     super.setNewItemActive(el);
     this.current.setAttribute('data-value', lang);
-    this.current.innerHTML = this.#parseChildSvgFrom(el) || lang;
+    this.current.innerHTML = getSvgFrom(el) || lang;
     this.updateContent(lang);
   }
 
@@ -52,16 +53,8 @@ class LangSwitcher extends Dropdown {
       const key = d.dataset.i18,
         translation = locale[key];
       if (!translation) return;
-      d.innerHTML = `${this.#parseChildSvgFrom(d)}${translation}`;
+      d.innerHTML = `${getSvgFrom(d)}${translation}`;
     });
-  }
-  /**
-   * 
-   * @param {HTMLElement} el 
-   */
-  #parseChildSvgFrom(el) {
-    const svg = el.querySelector('svg');
-    return svg?.outerHTML || '';
   }
 }
 
