@@ -10,6 +10,7 @@ export const HtmlModify = (): PluginOption => ({
     async handler(html) {
       const { document } = parseHTML(html)
       modifyItems(document)
+      replaceLangSwitcherElWithPHPBlock(document)
       return prependPHPBlock(document) 
     },
   },
@@ -36,6 +37,11 @@ const transformMeta = (item: Element, key: string) => {
 const transformElement = (item: Element, key: string) => {
   item.innerHTML = getSvgFrom(item)
   item.append(geti18String(key))
+}
+
+const replaceLangSwitcherElWithPHPBlock = (document: Document) => {
+  const root = document.querySelector('.lang-switcher')
+  root?.replaceWith(`<?php echo $langSwitcher->render(); ?>`)
 }
 
 const geti18String = (key: string): string => {
