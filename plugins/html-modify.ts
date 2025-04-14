@@ -43,13 +43,7 @@ const geti18String = (key: string): string => {
 }
 
 const prependPHPBlock = (document: Document) => {
-  return `<?php
-  require_once './config.php';
-  require_once './libs/i18/index.php';
-  $i18 = new I18(dirname(__FILE__) . '/locales/');
-
-  $i18->init();
-?>
+  return `<?php require_once './autoload.php'; ?>
 ${modifyBrackets(document)}
   `
 }
