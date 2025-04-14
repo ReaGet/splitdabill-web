@@ -44,7 +44,6 @@ class LangSwitcher extends Dropdown {
   async updateContent(lang) {
     const locale = await this.fetchNewLocales(lang);
     this.applyLocaleToDOM(locale);
-    this.updateLocation(lang);
   }
 
   async fetchNewLocales(lang) {
@@ -52,13 +51,24 @@ class LangSwitcher extends Dropdown {
     if (cached) return cached;
 
     try {
+      const formData = new FormData();
+      formData.append('get', lang);
+      return await fetch('/', {
+        method: 'POST',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: formData,
+      }).then(res => res.json())
       return _locale;
     } catch(e) {
       console.log('[fetch locale]:', e);
+      return {};
     }
   }
 
   applyLocaleToDOM(locale) {
+    if (!locale) return;
     const domItems = document.querySelectorAll('[data-i18]');
     domItems.forEach(d => {
       const key = d.dataset.i18,
@@ -66,13 +76,6 @@ class LangSwitcher extends Dropdown {
       if (!translation) return;
       d.innerHTML = `${getSvgFrom(d)}${translation}`;
     });
-  }
-
-  updateLocation(lang) {
-    if (history.pushState) {
-      const newurl = location.protocol + "//" + location.host + location.pathname + `?lang=${lang}`;
-      history.pushState({path:newurl}, '', newurl);
-    }
   }
 }
 
