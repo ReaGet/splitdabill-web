@@ -60,7 +60,6 @@ class LangSwitcher extends Dropdown {
         },
         body: formData,
       }).then(res => res.json())
-      return _locale;
     } catch(e) {
       console.log('[fetch locale]:', e);
       return {};
