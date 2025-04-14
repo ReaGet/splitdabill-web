@@ -55,7 +55,7 @@ export class Dropdown {
   }
   /**
    * 
-   * @param {HTMLElement} el 
+   * @param {HTMLElement} el  
    */
   setNewItemActive(el) {
     this.items.forEach(i => i.classList.remove('js-active'));
