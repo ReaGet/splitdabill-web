@@ -1,6 +1,7 @@
 import { Dropdown } from './dropdown'
 import _locale from '../shared/locale.json'
 import { getSvgFrom } from '../shared/dom'
+import { changeImgSrcInDocument, updateSrcLang } from '../shared/utils';
 
 class LangSwitcher extends Dropdown {
   cachedLocales = {};
@@ -19,7 +20,6 @@ class LangSwitcher extends Dropdown {
   }
 
   get lang() {
-    console.log(this.getCurrentLangFromQuery())
     return this.getCurrentLangFromQuery() || this.current.dataset.value;
   }
 
@@ -42,7 +42,7 @@ class LangSwitcher extends Dropdown {
   }
 
   async updateContent(lang) {
-    this.updateImagesSrc(lang);
+    changeImgSrcInDocument(document, lang);
     const locale = await this.fetchNewLocales(lang);
     this.applyLocaleToDOM(locale);
   }
@@ -76,24 +76,6 @@ class LangSwitcher extends Dropdown {
       if (!translation) return;
       d.innerHTML = `${getSvgFrom(d)}${translation}`;
     });
-  }
-
-  updateImagesSrc(lang) {
-    if (!lang) return;
-    const imgs = document.querySelectorAll('[data-i18-img]');
-    imgs.forEach(i => {
-      i.src = changeLangInSrc(i.src);
-    });
-
-    function changeLangInSrc(src) {
-      const { pathname } = new URL(src);
-      const pathParts = pathname.split('/');
-      return [
-        pathParts.slice(0, -2).join('/'),
-        lang,
-        pathParts.slice(-1)
-      ].join('/');
-    }
   }
 }
 

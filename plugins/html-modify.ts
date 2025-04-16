@@ -1,6 +1,7 @@
 import { parseHTML } from 'linkedom'
 import { PluginOption } from 'vite'
 import { getSvgFrom } from '../src/js/shared/dom'
+import { updateSrcLang } from '../src/js/shared/utils'
 
 export const HtmlModify = (): PluginOption => ({
   name: 'html-modify',
@@ -11,6 +12,7 @@ export const HtmlModify = (): PluginOption => ({
       const { document } = parseHTML(html)
       modifyItems(document)
       replaceLangSwitcherElWithPHPBlock(document)
+      modifyImgsSrc(document)
       return prependPHPBlock(document) 
     },
   },
@@ -37,6 +39,13 @@ const transformMeta = (item: Element, key: string) => {
 const transformElement = (item: Element, key: string) => {
   item.innerHTML = getSvgFrom(item)
   item.append(geti18String(key))
+}
+
+const modifyImgsSrc = (document: Document) => {
+  const imgs: NodeListOf<HTMLImageElement> = document.querySelectorAll('[data-i18-img]');
+  imgs.forEach(i => {
+    i.src = updateSrcLang(i.src, '<?php echo $i18->getLang() ?>')
+  })
 }
 
 const replaceLangSwitcherElWithPHPBlock = (document: Document) => {
