@@ -71,7 +71,7 @@
   margin-top: 40px;
 }
 
-.phone {
+.features__block .phone {
   --height: 80vh;
   filter: drop-shadow(1px 16px 13px rgba(0, 0, 0, 0.2));
   opacity: 0;

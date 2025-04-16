@@ -42,6 +42,7 @@ class LangSwitcher extends Dropdown {
   }
 
   async updateContent(lang) {
+    this.updateImagesSrc(lang);
     const locale = await this.fetchNewLocales(lang);
     this.applyLocaleToDOM(locale);
   }
@@ -75,6 +76,24 @@ class LangSwitcher extends Dropdown {
       if (!translation) return;
       d.innerHTML = `${getSvgFrom(d)}${translation}`;
     });
+  }
+
+  updateImagesSrc(lang) {
+    if (!lang) return;
+    const imgs = document.querySelectorAll('[data-i18-img]');
+    imgs.forEach(i => {
+      i.src = changeLangInSrc(i.src);
+    });
+
+    function changeLangInSrc(src) {
+      const { pathname } = new URL(src);
+      const pathParts = pathname.split('/');
+      return [
+        pathParts.slice(0, -2).join('/'),
+        lang,
+        pathParts.slice(-1)
+      ].join('/');
+    }
   }
 }
 
