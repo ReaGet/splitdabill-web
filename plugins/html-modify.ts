@@ -61,8 +61,9 @@ const modifyLink = (document: Document) => {
 const modifySvgLink = (document: Document) => {
   const svgUses = document.querySelectorAll('svg use')
   svgUses.forEach(s => {
-    const link = s.getAttribute('xlink:href')!
-    s.setAttribute('xlink:href', addVersionTo(link))
+    const [link, id] = s.getAttribute('xlink:href')!.split('#')
+
+    s.setAttribute('xlink:href', `${addVersionTo(link)}#${id}`)
   })
 }
 
