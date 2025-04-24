@@ -19,12 +19,6 @@
   box-shadow: none;
 }
 
-.footer .logo {
-  font-size: 2rem;
-  color: #000;
-  font-weight: bold;
-}
-
 .footer__nav {
   display: flex;
   flex-direction: column;
