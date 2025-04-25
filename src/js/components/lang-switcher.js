@@ -5,18 +5,21 @@ import { changeImgSrcInDocument, updateSrcLang } from '../shared/utils';
 
 class LangSwitcher extends Dropdown {
   cachedLocales = {};
+  locale = {};
   constructor(root) {
     super(root);
     this.init();
   }
 
-  init() {
+  async init() {
     this.items.forEach(i => {
       if (i.dataset.value === this.lang) {
         i.classList.add('js-active');
         this.setCurrentItemIcon(i);
       }
     });
+
+    this.locale = await this.fetchLocal(this.lang);
   }
 
   get lang() {
@@ -43,11 +46,11 @@ class LangSwitcher extends Dropdown {
 
   async updateContent(lang) {
     changeImgSrcInDocument(document, lang);
-    const locale = await this.fetchNewLocales(lang);
-    this.applyLocaleToDOM(locale);
+    this.locale = await this.fetchLocal(lang);
+    this.applyLocaleToDOM(this.locale);
   }
 
-  async fetchNewLocales(lang) {
+  async fetchLocal(lang) {
     const cached = this.cachedLocales[lang];
     if (cached) return cached;
 
@@ -79,4 +82,8 @@ class LangSwitcher extends Dropdown {
   }
 }
 
-new LangSwitcher(document.querySelector('.lang-switcher'));
+const langSwitcher = new LangSwitcher(document.querySelector('.lang-switcher'));
+
+export {
+  langSwitcher
+};
